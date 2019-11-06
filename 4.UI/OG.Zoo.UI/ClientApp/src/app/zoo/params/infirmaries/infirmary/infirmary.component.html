@@ -1,0 +1,42 @@
+<form class="container" [formGroup]="infirmaryForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>{{editMode ? 'Update' : 'Create'}} Infirmary Visit</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Animal" aria-label="Animal" formControlName="animal" [matAutocomplete]="auto">
+            <button mat-button  type="button" *ngIf="infirmaryForm.controls['animal'].value" matSuffix mat-icon-button aria-label="Clear" (click)="clearInput('animal')">
+              <mat-icon>close</mat-icon>
+            </button>
+            <mat-autocomplete #auto="matAutocomplete" [displayWith]="displayAnimal">
+              <mat-option *ngFor="let option of filteredAnimals | async" [value]="option">
+                {{option.name}}
+              </mat-option>
+            </mat-autocomplete>
+            <mat-error *ngIf="infirmaryForm.controls['animal'].hasError('required')">
+              Animal is <strong>required</strong>
+            </mat-error>
+            <mat-error *ngIf="infirmaryForm.controls['animal'].hasError('invalidList')">
+              Select a item from the <strong>list</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Diagnosis" formControlName="diagnosis">
+            <mat-error *ngIf="infirmaryForm.controls['diagnosis'].hasError('required')">
+              Diagnosis is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button mat-raised-button color="accent" type="button" (click)="goBack()">Go back</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

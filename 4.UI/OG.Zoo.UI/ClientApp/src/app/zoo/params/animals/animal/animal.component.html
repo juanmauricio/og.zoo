@@ -1,0 +1,77 @@
+<form class="container" [formGroup]="animalForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>{{editMode ? 'Update' : 'Create'}} Animal</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Name" formControlName="name">
+            <mat-error *ngIf="animalForm.controls['name'].hasError('required')">
+              Name is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Age" formControlName="age">
+            <mat-error *ngIf="animalForm.controls['age'].hasError('required')">
+              Age is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Country" formControlName="country">
+            <mat-error *ngIf="animalForm.controls['country'].hasError('country')">
+              Country is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Species" formControlName="species">
+            <mat-error *ngIf="animalForm.controls['species'].hasError('species')">
+              Species is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Subspecies" formControlName="subspecies">
+            <mat-error *ngIf="animalForm.controls['subspecies'].hasError('subspecies')">
+              Subspecies is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="EatingHabits" formControlName="eatingHabits">
+            <mat-error *ngIf="animalForm.controls['eatingHabits'].hasError('eatingHabits')">
+              Eating habits is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Type" formControlName="type">
+            <mat-error *ngIf="animalForm.controls['type'].hasError('type')">
+              Type is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button mat-raised-button color="accent" type="button" (click)="goBack()">Go back</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

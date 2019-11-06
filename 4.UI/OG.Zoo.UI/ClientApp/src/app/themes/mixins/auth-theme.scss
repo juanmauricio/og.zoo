@@ -1,0 +1,38 @@
+@import "~@angular/material/theming";
+
+@mixin auth-theme($theme) {
+  // Extract the palettes you need from the theme definition.
+  $primary: map-get($theme, primary);
+
+  // Define any styles affected by the theme.
+  .form-container {
+    height: 100vh;
+    display: inline-block;
+    background-color: mat-color($primary);
+    width: 100%;
+    .mat-card {
+      width: 300px;
+      height: 300px;
+      margin: calc(50vh - 166px) calc(50% - 166px);
+      .mat-card-header * {
+        width: calc(100% - 8px);
+        text-align: center;
+        .mat-card-title {
+          color: mat-color($primary);
+        }
+      }
+      .mat-card-content {
+        height: 160px;
+        .mat-form-field {
+          width: 100%;
+        }
+      }
+      .mat-card-actions {
+        text-align: center;
+      }
+    }
+  }
+  .mat-form-field-appearance-outline .mat-form-field-outline-thick {
+    color: mat-color($primary);
+  }
+}

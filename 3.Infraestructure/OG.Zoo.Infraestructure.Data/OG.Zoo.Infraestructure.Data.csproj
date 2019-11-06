@@ -1,0 +1,16 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Google.Cloud.Firestore" Version="1.0.0-beta19" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\1.Domain\OG.Zoo.Domain.Interfaces\OG.Zoo.Domain.Interfaces.csproj" />
+    <ProjectReference Include="..\OG.Zoo.Infraestructure.Utils\OG.Zoo.Infraestructure.Utils.csproj" />
+  </ItemGroup>
+
+</Project>

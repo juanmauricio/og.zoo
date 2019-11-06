@@ -1,0 +1,39 @@
+<form class="container" [formGroup]="userForm" novalidate (ngSubmit)="onSubmit()">
+  <mat-card class="shipping-card">
+    <mat-card-header>
+      <mat-card-title>{{editMode ? 'Update' : 'Create'}} User</mat-card-title>
+    </mat-card-header>
+    <mat-card-content>
+      <div class="row">
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Name" formControlName="name" (change)="trimValue(userForm.get('name'))">
+            <mat-error *ngIf="userForm.controls['name'].hasError('required')">
+              User is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+        <div class="col">
+            <mat-form-field class="full-width">
+              <input matInput type="email" placeholder="Email" formControlName="email" (change)="trimValue(userForm.get('email'))">
+              <mat-error *ngIf="userForm.controls['email'].hasError('email')">
+                Email is <strong>required</strong>
+              </mat-error>
+            </mat-form-field>
+          </div>
+        <div class="col">
+          <mat-form-field class="full-width">
+            <input matInput placeholder="Password" formControlName="password" autocomplete="new-password" type="password" (change)="trimValue(userForm.get('password'))">
+            <mat-error *ngIf="userForm.controls['password'].hasError('required')">
+              Password is <strong>required</strong>
+            </mat-error>
+          </mat-form-field>
+        </div>
+      </div>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-raised-button color="primary" type="submit">Submit</button>
+      <button mat-raised-button color="accent" type="button" (click)="goBack()">Go back</button>
+    </mat-card-actions>
+  </mat-card>
+</form>

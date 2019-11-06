@@ -1,0 +1,12 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\1.Domain\OG.Zoo.Domain.Model\OG.Zoo.Domain.Entities.csproj" />
+    <ProjectReference Include="..\..\3.Infraestructure\OG.Zoo.Infraestructure.Utils\OG.Zoo.Infraestructure.Utils.csproj" />
+  </ItemGroup>
+
+</Project>

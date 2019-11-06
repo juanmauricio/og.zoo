@@ -1,0 +1,27 @@
+<mat-toolbar *ngIf="navigationVisible" color="primary">
+  <button type="button" aria-label="Toggle sidenav" mat-icon-button (click)="drawer.toggle()">
+    <mat-icon [@openClose]="drawer.opened ? 'open' : 'close'" aria-label="Side nav toggle icon">{{drawer.opened ? 'close' : 'menu'}}</mat-icon>
+  </button>
+  <span class="title">Zoo</span>
+  <!-- This fills the remaining space of the current row -->
+  <span class="fill-remaining-space"></span>
+  <span>
+    <button mat-icon-button (click)="close()">
+      <mat-icon aria-label="Close session icon">exit_to_app</mat-icon>
+    </button>
+  </span>
+</mat-toolbar>
+<mat-sidenav-container class="sidenav-container" [class.login]="!navigationVisible">
+  <mat-sidenav #drawer class="sidenav" [fixedInViewport]="isHandset$ | async"
+    [attr.role]="(isHandset$ | async) ? 'dialog' : 'navigation'" [mode]="(isHandset$ | async) ? 'over' : 'side'"
+    [opened]="navigationVisible? !(isHandset$ | async): false">
+    <mat-toolbar>Menu</mat-toolbar>
+    <mat-nav-list>
+      <a *ngFor="let route of routes" mat-list-item [routerLink]="[route.url]">{{route.name}}</a>
+    </mat-nav-list>
+  </mat-sidenav>
+  <mat-sidenav-content>
+    <!-- Add Content Here -->
+    <router-outlet></router-outlet>
+  </mat-sidenav-content>
+</mat-sidenav-container>

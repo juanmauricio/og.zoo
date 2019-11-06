@@ -1,0 +1,19 @@
+<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="LightInject.Microsoft.AspNetCore.Hosting" Version="1.0.0" />
+    <PackageReference Include="Microsoft.AspNetCore.WebUtilities" Version="2.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\..\1.Domain\OG.Zoo.Domain.Services\OG.Zoo.Domain.Services.csproj" />
+    <ProjectReference Include="..\..\2.Application\OG.Zoo.Application.Interfaces\OG.Zoo.Application.Interfaces.csproj" />
+    <ProjectReference Include="..\..\2.Application\OG.Zoo.Application.Services\OG.Zoo.Application.Services.csproj" />
+    <ProjectReference Include="..\OG.Zoo.Infraestructure.Data\OG.Zoo.Infraestructure.Data.csproj" />
+  </ItemGroup>
+
+</Project>
